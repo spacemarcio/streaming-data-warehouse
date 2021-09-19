@@ -2,6 +2,7 @@
 
 ![](https://github.com/spacemarcio/streaming-data-warehouse/blob/048f22429caefd85e98d6d8fb853cf9e9aa583e1/readme-images/architeture.png)
 
+Architeture made for quick responses about buy or sell a share. Real-time data ingestion layer gives fresh to date information for the Enterprise Decision Support System. Batch processing data layer calculates strategy metrics based on past behavior.   
 
 ### Components
 
@@ -12,7 +13,7 @@
 - [X] EMR cluster and Jobs
 - [X] Redshift Cluster
 
-### Dataflow
+## Dataflow
 1. Data comes from producer [ `stream_stock_prices.py` ] to consumer [ Kinesis Firehose]
 
 2. Store transactional data at `stockprices-data` bucket, `transations` folder.
@@ -23,4 +24,12 @@
 
 5. Load the processed data into Redshift cluster [ Airflow `S3ToRedshiftOperator` operator].
 
-Data can be queried anytime and are stay fresh to date.
+## How setup the Architecture?
+
+1. Terraform files in `infrastructure` folder are responsible for: create buckets, setup Kinesis Firehose and Glue Crawler services, request a EC2 instance for Airflow and a Redshift cluster.
+
+2. In `Airflow` folder there are files for install Docker and setup Airflow at EC2 instance. Important to notice that it's necessary to create connections to request EMRs clusters and copy data from S3 to Redshift Operators. Look at `connections.md` file.
+
+3. In `redshift` folder there are SQL queries to create tables to recive data.
+
+4. In `producer` folder theare scritps to prepare and emulate stock price stream events.
