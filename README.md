@@ -23,4 +23,4 @@
 
 5. Load the processed data into Redshift cluster [ Airflow `S3ToRedshiftOperator` operator].
 
-6. Data can be queried anytime and are stay fresh to date.
+Data can be queried anytime and are stay fresh to date.
