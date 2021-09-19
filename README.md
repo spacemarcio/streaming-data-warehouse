@@ -34,7 +34,7 @@ Architeture made for quick responses about buy or sell a share. Real-time data i
 
 4. In `producer` folder theare scritps to prepare and emulate stock price stream events.
 
-## Cured pain points 
+## Pain points 
 
 The most harmless part of this system was send the data to Redshift. 
 
