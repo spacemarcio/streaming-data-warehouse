@@ -1,0 +1,5 @@
+data/**
+infrastructure/.terraform.lock.hcl
+infrastructure/.terraform/
+infrastructure/variables.tf
+bitcoin.pem
