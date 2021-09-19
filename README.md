@@ -33,3 +33,11 @@ Architeture made for quick responses about buy or sell a share. Real-time data i
 3. In `redshift` folder there are SQL queries to create tables to recive data.
 
 4. In `producer` folder theare scritps to prepare and emulate stock price stream events.
+
+## Cured pain points 
+
+The most harmless part of this system was send the data to Redshift. 
+
+When data comes from Firehose, you just have to certify that CloudWatch logs will be store, they are very informative. I had problems based on Redshift endpoint, IAM permissions, and copy options [ variables in JSON files must be in the same order that Redshift table ].
+
+It takes a lot of time to figure out how to load processed data from EMR to Redshift. The easy way is to use Airflow Operator, but another popular solution is to use Lambda functions and Redshift boto3 client.
